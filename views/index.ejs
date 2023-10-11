@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tu Abarrotería de Confianza</title>
+    <!-- Enlace a Bootstrap CSS (Asegúrate de descargar e incluir Bootstrap en tu proyecto) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <%- include("templates/header") %>
+
+    <!-- Encabezado de Bootstrap -->
+    <header class="bg-success text-white text-center py-5">
+        <h1>Tu Abarrotería de Confianza</h1>
+        <p>Tu destino para productos de calidad a precios asequibles.</p>
+    </header>
+
+    <section class="container my-5">
+        <h2 class="mb-4 text-center">Nuestros Productos Destacados</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://pymstatic.com/102364/conversions/tipos-frutas-social.jpg" class="card-img-top" alt="Producto 1">
+                    <div class="card-body">
+                        <h3 class="card-title">Frutas</h3>
+                        <p class="card-text">Obten lo mejor</p>
+                        <p class="card-text">Precio: Accesible</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://www.edualimentaria.com/images/carnes/carnes-derivados-cecinas.jpg" class="card-img-top" alt="Producto 2">
+                    <div class="card-body">
+                        <h3 class="card-title">Carnes</h3>
+                        <p class="card-text">Disfruta lo mejor</p>
+                        <p class="card-text">Precio: Accesible</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://gestionagroganadera.com/wp-content/uploads/2021/02/consumo-lacteos.jpeg" class="card-img-top" alt="Producto 3">
+                    <div class="card-body">
+                        <h3 class="card-title">Lacteos</h3>
+                        <p class="card-text">Da lo mejor de ti</p>
+                        <p class="card-text">Precio: $Accesible</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <%- include("templates/footer") %>
+
+    <!-- Enlace a Bootstrap JS (Asegúrate de descargar e incluir Bootstrap en tu proyecto) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

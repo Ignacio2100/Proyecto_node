@@ -1,0 +1,59 @@
+<%- include("templates/header") %>
+
+<div class="container">
+      <div class="shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+          <form action="/addcategoria" method="POST">
+           
+            <h1 class="text-primary ">Registro de Categorias</h1>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="codigocategoria">Codigo</label>
+                <input type="text" class="form-control" id="codigocategoria" name="codigocategoria" placeholder="Codigo" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="nombre">Tipo de Categoria</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Categoria" required>
+              </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-success">Agregar</button>
+           </form>
+
+        </div>
+        <div class="form-group p-3">
+          <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (var i =0; i<listacategoria.length; i++){%>
+              <tr>
+                <th scope="row"><%=listacategoria[i].codigocategoria%></th>
+                <td><%=listacategoria[i].nombre%></td>
+
+                <td>
+                  <a href="/editcategoria/<%=listacategoria[i]._id%>" class="btn btn-info">Editar</a>
+                  <a href="/deletecategoria/<%=listacategoria[i]._id%>" class="btn btn-danger">Eliminar</a>
+                </td>
+              </tr>
+
+            <%}%>
+          </tbody>
+        </table>
+
+        </div>
+
+      </div>
+
+  </div>
+
+
+
+
+<%- include("templates/footer") %>

@@ -1,0 +1,111 @@
+<%- include("templates/header") %>
+
+<div class="container">
+      <div class="shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+          <form action="/addproducto" method="POST">
+            <h1 class="text-primary ">Registro de Producto</h1>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="codigoproducto">Codigo</label>
+                <input type="text" class="form-control" id="codigoproducto" name="codigoproducto" placeholder="Codigo" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="descripcionproducto">Descripción</label>
+                <input type="text" class="form-control" id="descripcionproducto" name="descripcionproducto" placeholder="Descripción" required>
+              </div>
+
+            </div>
+            <div class="form-row">
+
+              <div class="form-group col-md-6">
+                <label for="categoriaproducto">Categoria</label>
+                <select id="categoriaproducto" name="categoriaproducto" class="form-control" required>
+                  <option value="Lacteos">Lacteos</option>
+                  <option value="Carnes">Carnes</option>
+                  <option value="Legumbres">Legumbres</option>
+                </select>
+              </div> 
+
+              
+
+              <div class="form-group col-md-6">
+                <label for="costoproducto">Costo</label>
+                <input type="number" class="form-control" id="costoproducto" name="costoproducto" placeholder="Costo" step="0.01" required>
+              </div>
+
+            </div>
+
+            <div class="form-row">
+
+              
+
+              <div class="form-group col-md-4">
+                <label for="existencia">Existencia</label>
+                <input type="number" class="form-control" id="existencia" name="existencia" placeholder="existencia"  required>
+              </div>
+
+              <div class="form-group col-md-4">
+                <label for="precioproducto">Precio</label>
+                <input type="number" class="form-control" id="precioproducto" name="precioproducto" placeholder="Precio" step="0.01" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="estadoproducto">Estado</label>
+                <select id="estadoproducto" name="estadoproducto" class="form-control" required>
+                  <option value="true">Activo</option>
+                  <option value="false">Inactivo</option>
+                </select>
+              </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-success">Agregar</button>
+           </form>
+
+        </div>
+        <div class="form-group p-3">
+          <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Costo</th>
+              <th scope="col">Existencia</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (var i =0; i<listaproductos.length; i++){%>
+              <tr>
+                <th scope="row"><%=listaproductos[i].codigoproducto%></th>
+                <td><%=listaproductos[i].descripcionproducto%></td>
+                <td><%=listaproductos[i].categoriaproducto%></td>  
+                <td><%=listaproductos[i].costoproducto%></td>
+                <td><%=listaproductos[i].existencia%></td>
+                <td><%=listaproductos[i].precioproducto%></td>
+                <td><%=listaproductos[i].estadoproducto ? 'Activo':'Inactivo'%></td>
+                <td>
+                  <a href="/editproducto/<%=listaproductos[i]._id%>" class="btn btn-info">Editar</a>
+                  <a href="/deleteproducto/<%=listaproductos[i]._id%>" class="btn btn-danger">Eliminar</a>
+                </td>
+              </tr>
+
+            <%}%>
+
+
+          </tbody>
+        </table>
+
+        </div>
+
+      </div>
+
+  </div>
+
+
+
+
+<%- include("templates/footer") %>

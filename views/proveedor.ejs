@@ -1,0 +1,121 @@
+<%- include("templates/header") %>
+
+<div class="container">
+      <div class="shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+          <form action="/addproveedor" method="POST">
+            <h1 class="text-primary ">Proveedor</h1>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="codigoproveedor">Codigo</label>
+                <input type="text" class="form-control" id="codigoproveedor" name="codigoproveedor" placeholder="Codigo" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="dpiproveedor">DPI</label>
+                <input type="number" class="form-control" id="dpiproveedor" name="dpiproveedor" placeholder="DPI" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="nitproveedor">NIT</label>
+                <input type="number" class="form-control" id="nitproveedor" name="nitproveedor" placeholder="NIT">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="nombreproveedor">Nombre</label>
+                <input type="text" class="form-control" id="nombreproveedor" name="nombreproveedor" placeholder="Nombre" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="apellidoproveedor">Apellido</label>
+                <input type="text" class="form-control" id="apellidoproveedor" name="apellidoproveedor" placeholder="Apellido" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="direccionproveedor">Dirección</label>
+                <input type="text" class="form-control" id="direccionproveedor" name="direccionproveedor" placeholder="Dirección" required>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="saldoproveedor">Saldo</label>
+                <input type="number" class="form-control" id="saldoproveedor" name="saldoproveedor" placeholder="Saldo" step="0.01" required>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="limitesaldoproveedor">Limite Saldo</label>
+                <input type="number" class="form-control" id="limitesaldoproveedor" name="limitesaldoproveedor" placeholder="Limite Saldo" step="0.01" required>
+              </div>
+
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="correoproveedor">Correo Electronico</label>
+                <input type="email" class="form-control" id="correoproveedor" name="correoproveedor" placeholder="Email" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="telefonoproveedor">Teléfono</label>
+                <input type="tel" class="form-control" id="telefonoproveedor" name="telefonoproveedor" placeholder="Telefono" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="estadoproveedor">Estado</label>
+                <select id="estadoproveedor" name="estadoproveedor" class="form-control" required>
+                  <option value="true">Activo</option>
+                  <option value="false">Inactivo</option>
+                </select>
+              </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-success">Agregar</button>
+           </form>
+
+        </div>
+        <div class="form-group p-3">
+          <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">DPI</th>
+              <th scope="col">NIT</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Dirección</th>
+              <th scope="col">Saldo</th>
+              <th scope="col">Limite</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (var i =0; i<listaproveedores.length; i++){%>
+              <tr>
+                <th scope="row"><%=listaproveedores[i].codigoproveedor%></th>
+                <td><%=listaproveedores[i].dpiproveedor%></td>
+                <td><%=listaproveedores[i].nitproveedor%></td>
+                <td><%=listaproveedores[i].nombreproveedor%></td>
+                <td><%=listaproveedores[i].apellidoproveedor%></td>
+                <td><%=listaproveedores[i].direccionproveedor%></td>
+                <td><%=listaproveedores[i].saldoproveedor%></td>
+                <td><%=listaproveedores[i].limitesaldoproveedor%></td>
+                <td><%=listaproveedores[i].estadoproveedor ? 'Activo':'Inactivo'%></td>
+                <td>
+                  <a href="/abonarproveedor/<%=listaproveedores[i]._id%>" class="btn btn-dark">Abonar</a>
+                  <a href="/editproveedor/<%=listaproveedores[i]._id%>" class="btn btn-info">Editar</a>
+                  <a href="/deleteproveedor/<%=listaproveedores[i]._id%>" class="btn btn-danger">Eliminar</a>
+                </td>
+              </tr>
+
+            <%}%>
+
+
+          </tbody>
+        </table>
+
+        </div>
+
+      </div>
+
+  </div>
+
+
+
+
+<%- include("templates/footer") %>

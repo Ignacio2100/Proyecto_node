@@ -1,0 +1,77 @@
+<%- include("templates/header") %>
+
+<div class="container">
+      <div class="shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+          <form action="/updateproveedor/<%=task_proveedor._id%>" method="POST">
+            <h1 class="text-primary ">Editar Proveedor</h1>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="codigoproveedor">Codigo</label>
+                <input type="text" class="form-control" id="codigoproveedor" name="codigoproveedor" placeholder="Codigo" readonly="readonly" value="<%=task_proveedor.codigoproveedor%>">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="dpiproveedor">DPI</label>
+                <input type="number" class="form-control" id="dpiproveedor" name="dpiproveedor" placeholder="DPI" value="<%=task_proveedor.dpiproveedor%>" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="nitproveedor">NIT</label>
+                <input type="number" class="form-control" id="nitproveedor" name="nitproveedor" placeholder="NIT" value="<%=task_proveedor.nitproveedor%>">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="nombreproveedor">Nombre</label>
+                <input type="text" class="form-control" id="nombreproveedor" name="nombreproveedor" placeholder="Nombre" value="<%=task_proveedor.nombreproveedor%>" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="apellidoproveedor">Apellido</label>
+                <input type="text" class="form-control" id="apellidoproveedor" name="apellidoproveedor" placeholder="Apellido" value="<%=task_proveedor.apellidoproveedor%>" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="direccionproveedor">Dirección</label>
+                <input type="text" class="form-control" id="direccionproveedor" name="direccionproveedor" placeholder="Dirección" value="<%=task_proveedor.direccionproveedor%>" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="limitesaldoproveedor">Limite Saldo</label>
+                <input type="number" class="form-control" id="limitesaldoproveedor" name="limitesaldoproveedor" placeholder="Limite Saldo" step="0.01" value="<%=task_proveedor.limitesaldoproveedor%>" required>
+              </div>
+
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="correoproveedor">Correo Electronico</label>
+                <input type="email" class="form-control" id="correoproveedor" name="correoproveedor" placeholder="Email" value="<%=task_proveedor.correoproveedor%>" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="telefonoproveedor">Teléfono</label>
+                <input type="tel" class="form-control" id="telefonoproveedor" name="telefonoproveedor" placeholder="Telefono" value="<%=task_proveedor.telefonoproveedor%>" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="estadoproveedor">Estado</label>
+                <select id="estadoproveedor" name="estadoproveedor" class="form-control"  required>
+                  <option value="true">Activo</option>
+                  <option value="false">Inactivo</option>
+                </select>
+              </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+           </form>
+
+        </div>
+
+
+      </div>
+
+  </div>
+
+<script>
+  document.getElementById("estadoproveedor").value = "<%=task_proveedor.estadoproveedor%>";
+</script>
+
+<%- include("templates/footer") %>

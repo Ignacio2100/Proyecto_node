@@ -1,0 +1,81 @@
+<%- include("templates/header") %>
+
+<div class="container">
+      <div class="shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+          <form action="/updateempleado/<%=task_empleado._id%>" method="POST">
+            <h1 class="text-primary ">Editar Empleado</h1>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="codigoempleado">Codigo</label>
+                <input type="text" class="form-control" id="codigoempleado" name="codigoempleado" placeholder="Codigo" readonly="readonly" value="<%=task_empleado.codigoempleado%>">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="dpiempleado">DPI</label>
+                <input type="number" class="form-control" id="dpiempleado" name="dpiempleado" placeholder="DPI" value="<%=task_empleado.dpiempleado%>" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="nitempleado">NIT</label>
+                <input type="number" class="form-control" id="nitempleado" name="nitempleado" placeholder="NIT" value="<%=task_empleado.nitempleado%>">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="nombreempleado">Nombre</label>
+                <input type="text" class="form-control" id="nombreempleado" name="nombreempleado" placeholder="Nombre" value="<%=task_empleado.nombreempleado%>" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="apellidoempleado">Apellido</label>
+                <input type="text" class="form-control" id="apellidoempleado" name="apellidoempleado" placeholder="Apellido" value="<%=task_empleado.apellidoempleado%>" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="direccionempleado">Dirección</label>
+                <input type="text" class="form-control" id="direccionempleado" name="direccionempleado" placeholder="Dirección" value="<%=task_empleado.direccionempleado%>" required>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="profesionempleado">Profesion</label>
+                <input type="text" class="form-control" id="profesionempleado" name="profesionempleado" placeholder="Profesion"  value="<%=task_empleado.profesionempleado%>" required>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="sueldoempleado">Sueldo</label>
+                <input type="number" class="form-control" id="sueldoempleado" name="sueldoempleado" placeholder="Sueldo"  value="<%=task_empleado.sueldoempleado%>" step="0.00" required>
+              </div>
+
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="correoempleado">Correo Electronico</label>
+                <input type="email" class="form-control" id="correoempleado" name="correoempleado" placeholder="Email" value="<%=task_empleado.correoempleado%>" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="telefonoempleado">Teléfono</label>
+                <input type="tel" class="form-control" id="telefonoempleado" name="telefonoempleado" placeholder="Telefono" value="<%=task_empleado.telefonoempleado%>">
+              </div>
+              <div class="form-group col-md-2">
+                <label for="estadoempleado">Estado</label>
+                <select id="estadoempleado" name="estadoempleado" class="form-control"  required>
+                  <option value="true">Activo</option>
+                  <option value="false">Inactivo</option>
+                </select>
+              </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Actualizar</button>
+           </form>
+
+        </div>
+
+
+      </div>
+
+  </div>
+
+<script>
+  document.getElementById("estadoempleado").value = "<%=task_empleado.estadoempleado%>";
+</script>
+
+<%- include("templates/footer") %>

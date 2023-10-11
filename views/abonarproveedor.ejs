@@ -1,0 +1,92 @@
+<%- include("templates/header") %>
+
+<div class="container">
+      <div class="shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+          <form action="/abonarproveedorsaldo/<%=task_proveedor._id%>" method="POST">
+            <h1 class="text-primary ">Abonar Proveedor</h1>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="codigoproveedor">Codigo</label>
+                <input type="text" class="form-control" id="codigoproveedor" name="codigoproveedor" placeholder="Codigo" readonly="readonly" value="<%=task_proveedor.codigoproveedor%>">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="dpiproveedor">DPI</label>
+                <input type="number" class="form-control" id="dpiproveedor" name="dpiproveedor" placeholder="DPI" value="<%=task_proveedor.dpiproveedor%>" readonly="readonly" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="nitproveedor">NIT</label>
+                <input type="number" class="form-control" id="nitproveedor" name="nitproveedor" placeholder="NIT" value="<%=task_proveedor.nitproveedor%>" readonly="readonly">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="nombreproveedor">Nombre</label>
+                <input type="text" class="form-control" id="nombreproveedor" name="nombreproveedor" placeholder="Nombre" value="<%=task_proveedor.nombreproveedor%>" required readonly="readonly">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="apellidoproveedor">Apellido</label>
+                <input type="text" class="form-control" id="apellidoproveedor" name="apellidoproveedor" placeholder="Apellido" value="<%=task_proveedor.apellidoproveedor%>" required readonly="readonly">
+              </div>
+            </div>
+
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="saldoproveedor">Saldo</label>
+                <input type="number" class="form-control" id="saldoproveedor" name="saldoproveedor" placeholder="Saldo" value="<%=task_proveedor.saldoproveedor%>" required readonly="readonly">
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="montoabono">Monto Abono</label>
+                <input type="number" class="form-control" id="montoabono" name="montoabono" placeholder="Abono" step="0.01" required>
+              </div>
+
+
+
+            </div>
+
+            <button type="submit" class="btn btn-primary">Abonar</button>
+           </form>
+
+        </div>
+
+
+        <div class="form-group p-3">
+          <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">Monto Abono</th>
+              <th scope="col">Saldo Actual</th>
+              <th scope="col">Fecha</th>
+              </tr>
+          </thead>
+          <tbody>
+            <% for (var i =0; i<listaabonos.length; i++){%>
+              <tr>
+                <th scope="row"><%=listaabonos[i].codigoproveedor%></th>
+                <td><%=listaabonos[i].montoabono%></td>
+                <td><%=listaabonos[i].saldoactualproveedor%></td>
+                <td><%=listaabonos[i].fechaabonoproveedor%></td>
+
+              </tr>
+
+            <%}%>
+
+
+          </tbody>
+        </table>
+
+        </div>
+
+
+
+      </div>
+
+  </div>
+
+
+
+
+<%- include("templates/footer") %>

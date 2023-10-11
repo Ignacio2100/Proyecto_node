@@ -1,0 +1,13 @@
+codigo para instalar en cmd para packetes en node js 
+npm init: para package.json
+npm install express --save: para instalar express local
+npm install -g express: para instalar express global
+
+npm install morgan:morgan es popular en resitros de middleware en solicitudes http para node.js
+
+npm install nodemon -D: nodemon nos ayuda a eviar reiniciar nuestro servidor en cada momento
+
+ejs: como mostrar vista en el navegador, ejs es un motor de plantillas que nos permite ejecutar pequeños codigos de javascript para contruir nuestras vistas
+
+npm run dev: correr servidor
+ctrl+c: cerrar servidor

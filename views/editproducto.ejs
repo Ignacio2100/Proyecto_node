@@ -1,0 +1,79 @@
+<%- include("templates/header") %>
+
+<div class="container">
+      <div class="shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+            <form action="/updateproducto/<%=task_producto._id%>" method="POST">
+              <h1 class="text-primary ">Editar Producto</h1>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="codigoproducto">Codigo</label>
+                  <input type="text" class="form-control" id="codigoproducto" name="codigoproducto" placeholder="Codigo"  readonly="readonly" value="<%=task_producto.codigoproducto%>" required>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="descripcionproducto">Descripción</label>
+                  <input type="text" class="form-control" id="descripcionproducto" name="descripcionproducto" placeholder="Descripción" value="<%=task_producto.descripcionproducto%>" required>
+                </div>
+
+              </div>
+              <div class="form-row">
+
+                <div class="form-group col-md-6">
+                  <label for="categoriaproducto">Categoria</label>
+                  <select id="categoriaproducto" name="categoriaproducto" class="form-control" required>
+                    <option value="Lacteos">Lacteos</option>
+                    <option value="Carnes">Carnes</option>
+                    <option value="Legumbres">Legumbres</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="costoproducto">Costo</label>
+                  <input type="number" class="form-control" id="costoproducto" name="costoproducto" placeholder="Costo" step="0.01" required>
+                </div>
+  
+  
+              </div>
+
+
+              <div class="form-row">
+                
+                <div class="form-group col-md-4">
+                  <label for="existencia">Existencia</label>
+                  <input type="number" class="form-control" id="existencia" name="existencia" placeholder="existencia"  required>
+                </div>
+  
+                <div class="form-group col-md-4">
+                  <label for="precioproducto">Precio</label>
+                  <input type="number" class="form-control" id="precioproducto" name="precioproducto" placeholder="Precio" step="0.01" required>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="estadoproducto">Estado</label>
+                  <select id="estadoproducto" name="estadoproducto" class="form-control" required>
+                    <option value="true">Activo</option>
+                    <option value="false">Inactivo</option>
+                  </select>
+                </div>
+
+              </div>
+
+              <button type="submit" class="btn btn-success">Actualizar</button>
+             </form>
+
+        </div>
+
+
+      </div>
+
+  </div>
+
+<script>
+  document.getElementById("categoriaproducto").value = "<%=task_producto.categoriaproducto%>";
+  document.getElementById("costoproducto").value = "<%=task_producto.costoproducto%>";
+  document.getElementById("existencia").value = "<%=task_producto.existencia%>";
+  document.getElementById("precioproducto").value = "<%=task_producto.precioproducto%>";
+  document.getElementById("estadoproducto").value = "<%=task_producto.estadoproducto%>";
+</script>
+
+<%- include("templates/footer") %>

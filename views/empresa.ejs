@@ -1,0 +1,59 @@
+<%- include("templates/header") %>
+
+<div class="container">
+      <div class="shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+          <form action="/addempresa" method="POST">
+           
+            <h1 class="text-primary ">Registro de Empresas</h1>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="codigoempresa">Codigo</label>
+                <input type="text" class="form-control" id="codigoempresa" name="codigoempresa" placeholder="Codigo" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="empresa">Nombre de Empresa</label>
+                <input type="text" class="form-control" id="empresa" name="empresa" placeholder="Empresa" required>
+              </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-success">Agregar</button>
+           </form>
+
+        </div>
+        <div class="form-group p-3">
+          <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">Empresa</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (var i =0; i<listaempresa.length; i++){%>
+              <tr>
+                <th scope="row"><%=listaempresa[i].codigoempresa%></th>
+                <td><%=listaempresa[i].empresa%></td>
+
+                <td>
+                  <a href="/editempresa/<%=listaempresa[i]._id%>" class="btn btn-info">Editar</a>
+                  <a href="/deleteempresa/<%=listaempresa[i]._id%>" class="btn btn-danger">Eliminar</a>
+                </td>
+              </tr>
+
+            <%}%>
+          </tbody>
+        </table>
+
+        </div>
+
+      </div>
+
+  </div>
+
+
+
+
+<%- include("templates/footer") %>

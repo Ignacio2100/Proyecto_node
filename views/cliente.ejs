@@ -1,0 +1,121 @@
+<%- include("templates/header") %>
+
+<div class="container">
+      <div class="shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+          <form action="/addcliente" method="POST">
+            <h1 class="text-primary ">Cliente</h1>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="codigocliente">Codigo</label>
+                <input type="text" class="form-control" id="codigocliente" name="codigocliente" placeholder="Codigo" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="dpicliente">DPI</label>
+                <input type="number" class="form-control" id="dpicliente" name="dpicliente" placeholder="DPI" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="nitcliente">NIT</label>
+                <input type="number" class="form-control" id="nitcliente" name="nitcliente" placeholder="NIT">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="nombrecliente">Nombre</label>
+                <input type="text" class="form-control" id="nombrecliente" name="nombrecliente" placeholder="Nombre" required>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="apellidocliente">Apellido</label>
+                <input type="text" class="form-control" id="apellidocliente" name="apellidocliente" placeholder="Apellido" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="direccioncliente">Dirección</label>
+                <input type="text" class="form-control" id="direccioncliente" name="direccioncliente" placeholder="Dirección" required>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="saldocliente">Saldo</label>
+                <input type="number" class="form-control" id="saldocliente" name="saldocliente" placeholder="Saldo" step="0.01" required>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="limitesaldocliente">Limite Saldo</label>
+                <input type="number" class="form-control" id="limitesaldocliente" name="limitesaldocliente" placeholder="Limite Saldo" step="0.01" required>
+              </div>
+
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="correocliente">Correo Electronico</label>
+                <input type="email" class="form-control" id="correocliente" name="correocliente" placeholder="Email" required>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="telefonocliente">Teléfono</label>
+                <input type="tel" class="form-control" id="telefonocliente" name="telefonocliente" placeholder="Telefono" required>
+              </div>
+              <div class="form-group col-md-2">
+                <label for="estadocliente">Estado</label>
+                <select id="estadocliente" name="estadocliente" class="form-control" required>
+                  <option value="true">Activo</option>
+                  <option value="false">Inactivo</option>
+                </select>
+              </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-success">Agregar</button>
+           </form>
+
+        </div>
+        <div class="form-group p-3">
+          <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">DPI</th>
+              <th scope="col">NIT</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Dirección</th>
+              <th scope="col">Saldo</th>
+              <th scope="col">Limite</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (var i =0; i<listaclientes.length; i++){%>
+              <tr>
+                <th scope="row"><%=listaclientes[i].codigocliente%></th>
+                <td><%=listaclientes[i].dpicliente%></td>
+                <td><%=listaclientes[i].nitcliente%></td>
+                <td><%=listaclientes[i].nombrecliente%></td>
+                <td><%=listaclientes[i].apellidocliente%></td>
+                <td><%=listaclientes[i].direccioncliente%></td>
+                <td><%=listaclientes[i].saldocliente%></td>
+                <td><%=listaclientes[i].limitesaldocliente%></td>
+                <td><%=listaclientes[i].estadocliente ? 'Activo':'Inactivo'%></td>
+                <td>
+                  <a href="/abonarcliente/<%=listaclientes[i]._id%>" class="btn btn-dark">Abonar</a>
+                  <a href="/editcliente/<%=listaclientes[i]._id%>" class="btn btn-info">Editar</a>
+                  <a href="/deletecliente/<%=listaclientes[i]._id%>" class="btn btn-danger">Eliminar</a>
+                </td>
+              </tr>
+
+            <%}%>
+
+
+          </tbody>
+        </table>
+
+        </div>
+
+      </div>
+
+  </div>
+
+
+
+
+<%- include("templates/footer") %>
