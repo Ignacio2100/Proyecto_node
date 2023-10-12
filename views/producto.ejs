@@ -107,6 +107,7 @@
                 <td><%=listaproductos[i].precioproducto%></td>
                 <td><%=listaproductos[i].estadoproducto ? 'Activo':'Inactivo'%></td>
                 <td>
+                  <a href="/envioproducto/<%=listaproductos[i]._id%>" class="btn btn-warning">Envio</a>
                   <a href="/editproducto/<%=listaproductos[i]._id%>" class="btn btn-info">Editar</a>
                   <a href="/deleteproducto/<%=listaproductos[i]._id%>" class="btn btn-danger">Eliminar</a>
                 </td>

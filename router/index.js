@@ -10,6 +10,7 @@ const TaskEmpleado=require('../models/taskempleado');
 const TaskProducto=require('../models/taskproducto');
 const TaskCategoria=require('../models/taskcategoria');
 const TaskEmpresa=require('../models/taskempresa');
+const TaskEnvio=require('../models/taskenvio');
 
 router.get('/',(req,res)=>{
 res.render("index",{titulo:"Inicio"});
@@ -240,6 +241,39 @@ router.get('/get-categorias', async (req, res) => {
   } catch (error) {
     res.status(500).send('Error al obtener categorías');
   }
+});
+
+router.get('/envioproducto/:id',async(req,res)=>{
+  const {id}=req.params;
+  const task_producto= await TaskProducto.findById(id);
+  const listaenvios= await TaskEnvio.find({codigoproducto:task_producto.codigoproducto});
+
+  res.render('envioproducto',{
+    titulo:'Envio Producto',
+    task_producto,
+    listaenvios
+  });
+});
+
+
+router.post('/envioproductoenvio/:id',async(req,res)=>{
+  const {id}=req.params;
+  const task_producto= await TaskProducto.findById(id);
+  if(parseFloat(req.body.cantidadenviada)>task_producto.existencia){
+
+        res.redirect('/producto');
+
+  }else{
+    task_producto.existencia=task_producto.existencia-parseFloat(req.body.cantidadenviada);
+    await task_producto.save();
+    const task_envio=new TaskEnvio(req.body);
+    task_envio.existencia=task_producto.existencia;
+    task_envio.fechaenvio=new Date();
+    await task_envio.save();
+
+    res.redirect('/producto');
+  }
+
 });
 
 

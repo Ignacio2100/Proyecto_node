@@ -1,0 +1,78 @@
+<%- include("templates/header") %>
+
+<div class="container">
+      <div class="shadow-lg p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+            <form action="/envioproductoenvio/<%=task_producto._id%>" method="POST">
+            <h1 class="text-primary ">Envio de Producto</h1>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="codigoproducto">Codigo</label>
+                    <input type="text" class="form-control" id="codigoproducto" name="codigoproducto" placeholder="Codigo"  readonly="readonly" value="<%=task_producto.codigoproducto%>" required>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="descripcionproducto">Descripción</label>
+                    <input type="text" class="form-control" id="descripcionproducto" name="descripcionproducto" placeholder="Descripción"  readonly="readonly" value="<%=task_producto.descripcionproducto%>" required>
+                  </div>
+                   
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="existencia">Existencia</label>
+                    <input type="number" class="form-control" id="existencia" name="existencia" placeholder="existencia"  readonly="readonly" value="<%=task_producto.existencia%>"  required>
+                  </div>
+
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="sucursal">Sucursal</label>
+                <input type="text" class="form-control" id="sucursal" name="sucursal" placeholder="Sucursal"  required >
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="cantidadenviada">Cantidad Enviada</label>
+                <input type="number" class="form-control" id="cantidadenviada" name="cantidadenviada" placeholder="Sucursal"  required >
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+           </form>
+
+        </div>
+
+
+        <div class="form-group p-3">
+          <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">Descripción</th>
+              <th scope="col">Existencia</th>
+              <th scope="col">Sucursal</th>
+              <th scope="col">Cantidad Enviada</th>
+              <th scope="col">Fecha</th>
+              </tr>
+          </thead>
+          <tbody>
+            <% for (var i =0; i<listaenvios.length; i++){%>
+              <tr>
+                <th scope="row"><%=listaenvios[i].codigoproducto%></th>
+                <td><%=listaenvios[i].descripcionproducto%></td>
+                <td><%=listaenvios[i].existencia%></td>
+                <td><%=listaenvios[i].sucursal%></td>
+                <td><%=listaenvios[i].cantidadenviada%></td>
+                <td><%=listaenvios[i].fechaenvio%></td>
+
+              </tr>
+
+            <%}%>
+
+
+          </tbody>
+        </table>
+
+        </div>
+      </div>
+
+  </div>
+
+<%- include("templates/footer") %>
