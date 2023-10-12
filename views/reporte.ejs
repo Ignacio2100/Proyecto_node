@@ -1,0 +1,40 @@
+<%- include("templates/header") %>
+
+<div class="card-body">
+    <h1 class="text-primary text-center">Reporte de Envio</h1>
+<div class="form-group p-3">
+    <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Codigo</th>
+        <th scope="col">Producto</th>
+        <th scope="col">Existencia</th>
+        <th scope="col">Sucursal</th>
+        <th scope="col">Cantidad Enviada</th>
+        <th scope="col">Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+      
+        <% for (var i =0; i<listaenvios.length; i++){%>
+            <tr>
+              <th scope="row"><%=listaenvios[i].codigoproducto%></th>
+              <td><%=listaenvios[i].descripcionproducto%></td>
+              <td><%=listaenvios[i].existencia%></td>
+              <td><%=listaenvios[i].sucursal%></td>
+              <td><%=listaenvios[i].cantidadenviada%></td>
+              <td><%=listaenvios[i].fechaenvio%></td>
+
+            </tr>
+
+          <%}%>
+
+
+    </tbody>
+  </table>
+
+  </div>
+</div>
+    
+    
+<%- include("templates/footer") %>

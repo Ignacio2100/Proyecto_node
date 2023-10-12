@@ -16,6 +16,14 @@ router.get('/',(req,res)=>{
 res.render("index",{titulo:"Inicio"});
 });
 
+router.get('/reporte',async(req,res)=>{
+  const listaenvios= await TaskEnvio.find();
+  res.render("reporte",{
+    titulo:"Reporte",
+    listaenvios:listaenvios});
+  });
+
+
 /////////////////////////////////////////////Rutas Cliente///////////////////////////////////////////////
 router.get('/cliente',async(req,res)=>{
 const listaclientes= await TaskCliente.find();//busca todos los cientes des la base de datos
