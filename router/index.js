@@ -203,12 +203,15 @@ res.render("producto",{
   listaproductos:listaproductos});
 });
 
+
+
  router.post('/addproducto', async (req, res) => {
    const task_producto = new TaskProducto(req.body);
    task_producto.fechacreacionproducto = new Date();
    await task_producto.save();
    res.redirect('/producto');
 });
+
 
 router.get('/editproducto/:id',async(req,res)=>{
   const {id}=req.params;
@@ -229,6 +232,16 @@ router.get('/deleteproducto/:id',async(req,res)=>{
   await TaskProducto.remove({_id:id});
   res.redirect('/producto');
 });
+
+router.get('/get-categorias', async (req, res) => {
+  try {
+    const categorias = await TaskCategoria.find();
+    res.json(categorias);
+  } catch (error) {
+    res.status(500).send('Error al obtener categorías');
+  }
+});
+
 
 
 /////////////////////////////////////////////Rutas Categoria///////////////////////////////////////////////
